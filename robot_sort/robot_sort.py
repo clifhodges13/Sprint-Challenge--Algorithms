@@ -96,8 +96,14 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # pick up first item and move right
+        # compare items
+        # if it returns 1, we wanna move right
+        # if it returns -1, we wanna swap items and move right
+        # continue until we reach the end, at which point, if the item in hand it larger than the last item, append item to list
+        # if the number of swaps are equal to the number of items in the list, that means our list is sorted, return the list
+        # move all the way to the left and start again
+        # return the list
 
 
 if __name__ == "__main__":
