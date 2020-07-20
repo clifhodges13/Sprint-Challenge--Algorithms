@@ -96,14 +96,38 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # pick up first item and move right
-        # compare items
-        # if it returns 1, we wanna move right
-        # if it returns -1, we wanna swap items and move right
-        # continue until we reach the end, at which point, if the item in hand it larger than the last item, append item to list
-        # if the number of swaps are equal to the number of items in the list, that means our list is sorted, return the list
-        # move all the way to the left and start again
-        # return the list
+        # loop throught the list
+        while self.can_move_right():
+            # while we can move right
+            while self.can_move_right():
+                # *** These do _NOT_ swap if the hand item is less than the list item
+                # if the hand item or the list item is None
+                if self.compare_item() == None:
+                    # swap em
+                    self.swap_item()
+                # otherwise if the hand item is greater than list item
+                elif self.compare_item() == 1:
+                    # swap em
+                    self.swap_item()
+                # move right
+                self.move_right()
+            # Then...
+            # while we can move left and the list item is not None
+            # This loop terminates when reaching the None item in the list
+            while self.can_move_left() and (self.compare_item() != None):
+                # if the hand item or the list item is None
+                if self.compare_item() == None:
+                    # swap em
+                    self.swap_item()
+                # otherwise if the hand item is greater than list item
+                elif self.compare_item() == 1:
+                    # swap em
+                    self.swap_item()
+                # move left
+                self.move_left()
+            print(self._list)
+        # return sorted list
+        return self._list
 
 
 if __name__ == "__main__":
